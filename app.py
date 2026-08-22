@@ -66,4 +66,9 @@ campo_pozo =st.text_input("Ingrese el campo al que pertenece el pozo")
 petroleo = st.number_input("Ingrese producción de petróleo", min_value = 0, max_value = 5000, value =1000)
 agua = st.number_input("Ingrese producción de agua", min_value = 0, max_value = 5000, value =200)
 
-Pozo= Pozo(nombre_pozo,campo_pozo,petroleo,agua
+Pozo= Pozo(nombre_pozo,campo_pozo,petroleo,agua)
+st.write(pozo.mostar_informacion())
+st.write(pozo.produccion_total())
+dias=st.number_input("ingrese los dias a proyectar", min_value = 0, max_value = 365, value =30)
+st.write(pozo.proyectar_produccion(dias))
+
