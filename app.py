@@ -40,26 +40,3 @@ elif modulos == "Funciones":
 caudal=calcular_caudal_vogel(caudal_max, Presion_yacimiento, Presion_fondo, decimales)
 st.write("El caudal es: ", caudal)
 
-elif modulos == "POO":
-  class Pozo:
-    def _init_(self, nombre, campo, petroleo, agua):
-      self.nombre = nombre
-      self.campo = campo
-      self.petroleo petroleo
-      self.agua = agua
-    def mostrar_informacion(self):
-      print("Pozo:", self.nombre)
-      print("Campo:", self.campo)
-      print("Petroleo:", self.petroleo, "BPD")
-      print("Agua:", self.agua, "BPD")
-    def produccion_total(self):
-      total_produccion = self.petroleo + self.agua
-      return total_produccion
-    def proyectar_produccion(self, dias=30):
-      produccion_proyectada (self.petroleo + self.agua)+dias
-      return produccion_proyectada
-
-nombre_pozo st.text_input("Ingrese el nombre del pozo")
-campo_pozo st.text_input("Ingrese el campo al que pertenece el pozo")
-petroleo st.number_input("Ingrese producción de petróleo", min_value = 0, max_value = 5000, value =1000)
-agua = st.number_input("Ingrese producción de agua", min_value = 0, max_value = 5000, value =200)
