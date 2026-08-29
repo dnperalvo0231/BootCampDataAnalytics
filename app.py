@@ -10,7 +10,7 @@ from clase_pozo import Pozo
 st.title("Bootcamp Data Analytics for Oil & Gas M1")
 st.sidebar.title("Parameters")
 
-modulos = st.sidebar.selectbox("Seleccione un modulo", ["Introduccion a variables", "Funciones","POO", "Importación de Liberias"])
+modulos = st.sidebar.selectbox("Seleccione un modulo", ["Introduccion a variables", "Funciones","POO", "Importación de Librerias"])
 
 if modulos == "Introduccion a variables":
 
@@ -92,7 +92,7 @@ elif modulos == "POO":
     dias = st.number_input("Ingrese los dias a proyectar: ", min_value = 0, max_value = 365)
     st.write(pozo.proyectar_produccion(dias))
 
-elif  modulos == "Importación de Liberias": 
+elif  modulos == "Importación de Librerias": 
   st.title("Aplicación Modular con Funciones y Clases")
   st.header("1. Uso de funciones")
   
