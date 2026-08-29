@@ -1,9 +1,15 @@
 import streamlit as st
+import pandas as pd
+
+from funciones_calculos import(calcular_liquido, calcular_bsw, proyectar producción)
+from funciones_datos import (filtrar_pozo, resumen dataframe)
+from clase_pozo import pozo
+
 
 st.title("Bootcamp Data Analytics for Oil & Gas M1")
 st.sidebar.title("Parameters")
 
-modulos = st.sidebar.selectbox("Seleccione un modulo", ["Introduccion a variables", "Funciones","POO"])
+modulos = st.sidebar.selectbox("Seleccione un modulo", ["Introduccion a variables", "Funciones","POO", "Importación de Liberias"])
 
 if modulos == "Introduccion a variables":
 
@@ -84,3 +90,44 @@ elif modulos == "POO":
     st.write("Producción total:", pozo.total_produccion(), "BPD")
     dias = st.number_input("Ingrese los dias a proyectar: ", min_value = 0, max_value = 365)
     st.write(pozo.proyectar_produccion(dias))
+
+elif modulos == "Importación de Liberias":
+    st.title("Aplicación Modular con Funciones y Clases")
+    st.header("1. Uso de funciones")
+   
+    petroleo=st.number_input(
+    "Producción de petróleo",
+    min_value=0.0,
+    value=800.0
+    )
+    
+    agua=st.number_input(
+    "Producción de agua",
+    min_value=0.0,
+    value=200.0
+    )
+    dias=st.number_input(
+    "Dias",
+    min_value=1,
+    value=30
+    )
+
+ if st.button("Calcular"):
+    liquido = calcular_liquido(
+        petroleo,
+        agua
+    )
+
+    bsw = calcular_bsw(
+        petroleo,
+        agua
+    )
+
+    proyeccion = proyectar_produccion(
+        petroleo,
+        dias
+    )
+
+    st.write("Producción líquida:", liquido)
+    st.write("BSW:", round(bsw, 2), "%")
+    st.write("Producción proyectada:", proyeccion)
